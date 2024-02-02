@@ -16,42 +16,42 @@
         Calcular el vatiaje de tus paneles solares
       </h1>
 
-      <!-- FORM-->
+      <!-- CHART-->
       <div style="width: 90%; margin-left: auto; margin-right: auto;">
-        <form class="row g-3">
-             <!-- Input 1 -->
-            <div class="col-auto">
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Temperatura:</label>
-                </div>
-                <div class="col-auto">
-                  <input disabled name="temperatura" type="number" id="temperatura" class="form-control" aria-describedby="passwordHelpInline"
-                  placeholder="{{temperatura}}">
-                </div>
-              </div>
-            </div>
-            <!-- Input 2 -->
-            <div class="col-auto">
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="inputPassword6" class="col-form-label">Irradiancia:</label>
-                </div>
-                <div class="col-auto">
-                  <input disabled name="irradiancia" type="number" id="irradiancia" class="form-control" aria-describedby="passwordHelpInline"
-                  placeholder="{{irradiancia}}">
-                </div>
-              </div>
-            </div>
-            <!-- Button -->
-            <div class="col-auto">
-              <button disabled type="submit" class="btn btn-secondary mb-3">
-                CALCULAR
-              </button>
-            </div>
-        </form>
+        <canvas id="charts" style="width:100%;"></canvas>
       </div>
 
+      <br>
+
+      <!-- DATA-->
+      <div style="width: 800px; margin-left: auto; margin-right: auto;">
+        <table border="1" cellpadding="1" class="table table-bordered" style="font-size: 12px;">
+          <tbody>
+            <tr>
+              <td>Temperatura</td>
+              <td>{{temperatura}} C</td>
+            </tr>
+            <tr>
+              <td>Irradiancia</td>
+              <td>{{irradiancia}} W</td>
+            </tr>
+            <tr>
+              <td>Potencia Maxima</td>
+              <td>{{max_potencia}} W</td>
+            </tr>
+            <tr>
+              <td>Voltaje Maximo</td>
+              <td>{{max_voltaje}} V</td>
+            </tr>
+            <tr>
+              <td>Corriente Maxima</td>
+              <td>{{max_corriente}} A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RESTART BUTTOM-->
       <div style="width: 90%; margin-left: auto; margin-right: auto;">
         <form class="row g-3" action="/home" method="get">
           <button type="submit" class="btn btn-primary mb-3" style="width: 100%;">
@@ -60,16 +60,56 @@
         </form>
       </div>
 
-      <!-- RESULTS-->
-      <div>
-        im in results
-      </div>
-
     </div>
     <!-- PAGE-END -->
 
     <!-- LIBRARIES-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script> 
+
+    <!-- CHART FUNCTION-->
+    <script>
+      const xValues = {{chart_x}};
+      new Chart("charts", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+          { 
+            label: 'Corriente',
+            data: {{chart_y_corriente}},
+            borderColor: "red",
+            fill: false
+          },
+          { 
+            label: 'Potencia',
+            data: {{chart_y_potencia}},
+            borderColor: "blue",
+            fill: false
+          }]
+        },
+        options: {
+          scales: { 
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Valores normalizados'
+              }
+            }],
+            xAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Voltaje'
+                }
+              }
+            ]
+          },
+          legend: {display: true}
+        }
+      });
+    </script>
 
   </body>
 </html>
