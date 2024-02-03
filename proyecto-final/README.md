@@ -1,4 +1,5 @@
-# Proyecto final - alcular potencia maxima de paneles solares
+# Proyecto final - Calcular potencia maxima de paneles solares
+# Integrantes:  Guillermo de Mendoza, Nataly Roa y Larry Prentt
 
 ### iniciar el proyecto
 
