@@ -2,24 +2,24 @@
 
 ## tarea2-database
 
- La carpeta costa de tres archivos,cada archivo tiene el oreden de creacion y para poder generar el archivo censo.db
+ La carpeta consta de tres archivos,cada archivo tiene el orden de creacion para poder generar el archivo censo.db
 
 
  1.censo.py crea la estructura de los datos y los datos
 
  
- 2.creacion_base_dato.ipynb es un notebook que genera por medio de librerias de sql en el entorno python el archivo y crea suestro archvo resultante.
+ 2.creacion_base_dato.ipynb es un notebook que genera por medio de librerias de sql en el entorno python la Base de Datos resultante a partir de un DataFrame de Censo.
 
 
 ## proyecto-final
 
-encontrara el desarrollo del un framework web, desarollado en python y flask
+Encontrara el desarrollo de un framework web, desarrollado en python y flask
 
 
-El objetivo inicial de la carpeta 'proyecto-final' es mostrar los codigos que necesita el desarrollo de una predicion del voltaje de paneles solares, los valores de entrada son:
+El objetivo inicial de la carpeta 'proyecto-final' es mostrar los codigos que necesita el desarrollo de una predicion de curvas de Corriente, voltaje y Potencia de paneles solares, los valores de entrada son:
 
-- Temparatura: au entrada esta en valors centrigrados ej 30°c.
-- Irradiancia: valor que se comprende en vatios.
+- Temparatura: La entrada esta en grados centrigrados ej 30°c.
+- Irradiancia: valor que se comprende en vatios/m2.
 
   Vas a encontrar el calculo y una grafica que te mostrara el comportamiento de dichas variables.
   
@@ -27,4 +27,4 @@ El objetivo inicial de la carpeta 'proyecto-final' es mostrar los codigos que ne
 ### Integrantes
 - Guillermo De Mendoza (memoodm@gmail.com)
 - Nataly Roa (nataly.roa0513@gmail.com)
-- Larry Prent (lprentt@yahoo.com) 
+- Larry Prentt (lprentt@yahoo.com) 
